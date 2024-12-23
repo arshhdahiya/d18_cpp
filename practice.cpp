@@ -1,102 +1,46 @@
-Date, Iteration
-Date: 05-12-2023, Iteration: 1
-Date: 05-12-2023, Iteration: 2
-Date: 05-12-2023, Iteration: 3
-Date: 05-12-2023, Iteration: 4
-Date: 05-12-2023, Iteration: 5
-Date: 05-12-2023, Iteration: 6
-Date: 05-12-2023, Iteration: 7
-Date: 05-12-2023, Iteration: 8
-Date: 05-12-2023, Iteration: 9
-Date: 05-12-2023, Iteration: 10
-Date: 06-12-2023, Iteration: 1
-Date: 06-12-2023, Iteration: 2
-Date: 06-12-2023, Iteration: 3
-Date: 06-12-2023, Iteration: 4
-Date: 07-12-2023, Iteration: 1
-Date: 07-12-2023, Iteration: 2
-Date: 07-12-2023, Iteration: 3
-Date: 08-12-2023, Iteration: 1
-Date: 09-12-2023, Iteration: 1
-Date: 09-12-2023, Iteration: 2
-Date: 09-12-2023, Iteration: 3
-Date: 09-12-2023, Iteration: 4
-Date: 09-12-2023, Iteration: 5
-Date: 09-12-2023, Iteration: 6
-Date: 09-12-2023, Iteration: 7
-Date: 09-12-2023, Iteration: 8
-Date: 09-12-2023, Iteration: 9
-Date: 09-12-2023, Iteration: 10
-Date: 09-12-2023, Iteration: 11
-Date: 11-12-2023, Iteration: 1
-Date: 11-12-2023, Iteration: 2
-Date: 11-12-2023, Iteration: 3
-Date: 11-12-2023, Iteration: 4
-Date: 11-12-2023, Iteration: 5
-Date: 14-12-2023, Iteration: 1
-Date: 14-12-2023, Iteration: 2
-Date: 14-12-2023, Iteration: 3
-Date: 14-12-2023, Iteration: 4
-Date: 14-12-2023, Iteration: 5
-Date: 14-12-2023, Iteration: 6
-Date: 14-12-2023, Iteration: 7
-Date: 14-12-2023, Iteration: 8
-Date: 14-12-2023, Iteration: 9
-Date: 17-12-2023, Iteration: 1
-Date: 17-12-2023, Iteration: 2
-Date: 17-12-2023, Iteration: 3
-Date: 19-12-2023, Iteration: 1
-Date: 19-12-2023, Iteration: 2
-Date: 19-12-2023, Iteration: 3
-Date: 19-12-2023, Iteration: 4
-Date: 19-12-2023, Iteration: 5
-Date: 19-12-2023, Iteration: 6
-Date: 19-12-2023, Iteration: 7
-Date: 20-12-2023, Iteration: 1
-Date: 20-12-2023, Iteration: 2
-Date: 20-12-2023, Iteration: 3
-Date: 20-12-2023, Iteration: 4
-Date: 20-12-2023, Iteration: 5
-Date: 20-12-2023, Iteration: 6
-Date: 20-12-2023, Iteration: 7
-Date: 20-12-2023, Iteration: 8
-Date: 20-12-2023, Iteration: 9
-Date: 20-12-2023, Iteration: 10
-Date: 21-12-2023, Iteration: 1
-Date: 21-12-2023, Iteration: 2
-Date: 21-12-2023, Iteration: 3
-Date: 21-12-2023, Iteration: 4
-Date: 21-12-2023, Iteration: 5
-Date: 21-12-2023, Iteration: 6
-Date: 21-12-2023, Iteration: 7
-Date: 21-12-2023, Iteration: 8
-Date: 21-12-2023, Iteration: 9
-Date: 21-12-2023, Iteration: 10
-Date: 21-12-2023, Iteration: 11
-Date: 21-12-2023, Iteration: 12
-Date: 22-12-2023, Iteration: 1
-Date: 22-12-2023, Iteration: 2
-Date: 22-12-2023, Iteration: 3
-Date: 22-12-2023, Iteration: 4
-Date: 22-12-2023, Iteration: 5
-Date: 22-12-2023, Iteration: 6
-Date: 22-12-2023, Iteration: 7
-Date: 23-12-2023, Iteration: 1
-Date: 23-12-2023, Iteration: 2
-Date: 23-12-2023, Iteration: 3
-Date: 23-12-2023, Iteration: 4
-Date: 24-12-2023, Iteration: 1
-Date: 24-12-2023, Iteration: 2
-Date: 24-12-2023, Iteration: 3
-Date: 24-12-2023, Iteration: 4
-Date: 24-12-2023, Iteration: 5
-Date: 24-12-2023, Iteration: 6
-Date: 24-12-2023, Iteration: 7
-Date: 24-12-2023, Iteration: 8
-Date: 24-12-2023, Iteration: 9
-Date: 25-12-2023, Iteration: 1
-Date: 25-12-2023, Iteration: 2
-Date: 25-12-2023, Iteration: 3
-Date: 25-12-2023, Iteration: 4
-Date: 25-12-2023, Iteration: 5
-Date: 25-12-2023, Iteration: 6
+class Solution {
+public:
+    int maxCount(vector<int>& banned, int n, int maxSum) {
+            bitset<10001> xNot=0;
+            for(int x: banned)
+                xNot[x]=1;
+            int sum=0, cnt=0;
+            for(int x=1; x<=n && sum<=maxSum; x++){
+                if (!xNot[x]){
+                    sum+=x;
+                    cnt++;
+                }
+            }
+            return (sum<=maxSum)?cnt:cnt-1;
+    }
+
+    // int maxCount(vector<int>& banned, int n, int maxSum) {
+// minSol
+        // // sorting the array
+        // sort(banned.begin(), banned.end());
+        // int start = 0;
+        // int end = banned.size()-1;
+
+        // // started solving the answer;
+        // int answer = 0;
+        // int sum = 0;
+        // int counter = 1;
+        // while(counter<=n && start<=end) {
+        //    if(counter == banned[start]){
+        //     counter++;
+        //     start++;
+        //    } else if(counter+sum<=maxSum){
+        //     answer++;
+        //     sum+=counter;
+        //     counter++;
+        //    }
+        //    else{
+        //     break;
+        //    }  
+        // }
+        // return answer;
+    // }
+};
+
+
+
